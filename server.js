@@ -15,8 +15,18 @@ app.use(routes);
 //Acceptance Criteria #3
 sequelize.sync({ force: false }).then(() => {
 
-  console.log(`Connected to Database \n`);
+  console.log(
+    `\n
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+              Connected to Database 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n`
+  );
   app.listen(PORT, () => {
-    console.log(`App listening on port ${PORT}!`);
+    console.log(
+`
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+            App listening on port ${PORT}!
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*`
+    );
   });
 });
