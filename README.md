@@ -134,4 +134,8 @@ for more information you can have a question via email [rogers.ramirez2008@gmail
 
 ### Screenshot 1
 
-![](./assest/images/image1.JPG)
+![](./assets/images/image.jpg)
+
+### Screenshot 2
+
+![](./assets/images/image2.jpg)
