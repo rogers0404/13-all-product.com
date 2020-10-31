@@ -28,8 +28,8 @@ It has developed with Express.js, MySQL Database, Sequelize, Dotenv, MySQL2 pack
     - [GIT: git@github.com:rogers0404/13-all-product.com.git](git@github.com:rogers0404/13-all-product.com.git)
 
 * Link Video
-    - [Youtube Video: https://youtu.be/66aD5Yslw_Y](https://youtu.be/66aD5Yslw_Y)
-    - [Google Drive Video: https://drive.google.com/file/d/1L_ZzRqjHDop5IUXWi7qdfTzaSazX2p2V/view](https://drive.google.com/file/d/1L_ZzRqjHDop5IUXWi7qdfTzaSazX2p2V/view)
+    - [Youtube Video: https://youtu.be/Mxw1x-mLjIM](https://youtu.be/Mxw1x-mLjIM)
+    - [Google Drive Video: https://drive.google.com/file/d/1Fuk-v3h4-UlNW3z1Aoi4fwwrLZt6yVk6/view](https://drive.google.com/file/d/1Fuk-v3h4-UlNW3z1Aoi4fwwrLZt6yVk6/view)
 
 
 ## Installation
