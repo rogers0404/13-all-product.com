@@ -2,11 +2,11 @@
 
 ## Description 
 
-An application that can be used to manage the company's employee database.
+A Back End application that can be used to interact with the database.
 
-You can check/view all information that is contained in the database via and interface develop in this application
+You can Create, Read, Update, and Delete (CRUD) information that is contained in the database via and interface develop in this application
 
-It has developed with Node.js, MySQL Database, Inquirer and MySQL2 packages and ES6.
+It has developed with Express.js, MySQL Database, Sequelize, Dotenv, MySQL2 packages and ES6.
 
 
 ## Table of Contents
@@ -39,6 +39,7 @@ You need some packages to run this application,
 - `git clone git@github.com:rogers0404/13-all-product.com.git        //clone the repository`
 - `npm i                                   // or npm install to get all packages and dependencies of NPM`
 - `npm init                                // to get package.json`
+- `npm install express                     // check wether you have installed npm packages or just install express`
 - `npm install --save mysql2               // Install npm package for MySQL`
 - `npm install dotenv                      // Install npm dotenv package`
 - `npm npm i sequelize                     // Install npm sequelize `
@@ -51,11 +52,11 @@ You need some packages to run this application,
 
 Defining Express in the application:
 
-`const inquirer = require('inquirer');`
+`const express = require('express');`
 `const mysql = require('mysql2');`
-`const cTable  = require('console.table');`
-`const Employee = require('./Employee');`
-`const Department = require('./Department');`
+`require('dotenv').config();`
+`const Sequelize = require('sequelize');`
+`const router = require('express').Router();`
 
 The starting command-line is:
 
@@ -64,31 +65,36 @@ The starting command-line is:
 `npm start                                 // to run the server`
 
 
-Examples of methods to execute queries in async way:
+Examples of methods in Express.js, MySQL2, dotenv and Sequelize :
 
-`finishConnection() {               `
-`       connection.end();           `
-`    }                              `
+Enviroment Variables
+`DB_NAME='ecommerce_db'`
+`DB_USER='root'`
+`DB_PW='Alejandro1210'`
 
-`  viewAllQuery(str){                                           `
-`       const query =  connection.promise()                     `
-`                       .query(str)                             `
-`                       .then(([rows,fields]) => {              `
-`                           console.log('\n');                  `
-`                            console.table(rows);               `                        
-`                       })                                      `
-`                        .catch((err) =>  console.log(err));    `
-`    };                                                         `
+Connection to DB
+`sequelize.sync({ force: false }).then(() => {`  
+`    app.listen(PORT, () => console.log(App listening on port ${PORT}!);`
+`    });`
+`});`
 
-`    deleteQuery(str){                                              `
-`        const query =  connection.promise()                        `
-`                        .query(str)                                `
-`                        .then(([rows,fields]) => {                 `
-`                            console.log('\n');                     `
-`                            console.log(' Register Deleted!\n');   `
-`                        })                                         `
-`                        .catch((err) =>  console.log(err));        `
-`    };                                                             `
+Routes
+`router.get('/', (req, res) => {`
+`  // find all categories`
+`  // be sure to include its associated Products`
+`  Category.findAll({`
+`    attributes: ['id', 'category_name'],`
+`      include: [{`
+`                model: Product,`
+`                attributes: ['id', 'product_name', 'price', 'stock','category_id']`
+`              }]`
+`    })`
+`    .then((dbGetData) => res.json(dbGetData))`
+`    .catch(err => {`
+`        console.log(err);`
+`        res.status(500).json(err);`
+`      });`
+`});`
 
 
 ## Contributing
@@ -98,31 +104,21 @@ Examples of methods to execute queries in async way:
 
 ## License
 
-Employee tracker management App with Node.js and MySQL2 is licensed under the
+all-product.com App with Express.js is licensed under the
 
 ![v1](https://img.shields.io/static/v1?label=License&message=None&color=inactive&&style=plastic)
 
 None
 
-console.table Dependency is licensed under the
+Express.js Dependency is licensed under
 
 ![v1](https://img.shields.io/static/v1?label=License&message=MIT&color=green&&style=plastic)
 
 MIT
 
-Inquirer Dependency is licensed under
-
-![v1](https://img.shields.io/static/v1?label=License&message=MIT&color=green&&style=plastic)
-
-Copyright (c) 2016 Simon Boudrias (twitter: @vaxilart) Licensed under the MIT license.
-
-
-
 ## Test
 
-the Objects created are tested with Jest Package
-
-`npm test                                  // to test the code with jest`
+None
 
 Queries are tested inside package MySQL2
 
